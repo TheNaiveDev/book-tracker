@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto+Mono&display=swap');
+
+$primary-color : rgb(0, 121, 255);
+$secondary-color: rgb(0, 223, 162);
+$link-color: rgb(246, 250, 112);
+$profile-color: rgb(255, 0, 96);
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono';
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    .title {
+        height: 5%;
+        background-color: $secondary-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        letter-spacing: 3px;
+    }
+    .blue-bar {
+        height: 5%;
+        background-color: $primary-color;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        ul {
+            display: flex;
+            gap: 100px;
+            margin-right: 200px;
+            li {
+                list-style-type: none;
+                color: $link-color;
+                cursor: pointer;
+                font-size: 20px;
+            }
+            .active {
+                color: $link-color;
+                text-shadow: 0 0 3px $link-color;
+            }
+        }
+    }
+    .main-content {
+        height: 90%;
+        width: 100%;
+        display: flex;
+        .book-section {
+            width: 100%;
+            background-color: $secondary-color;
+            display: grid;
+            grid-template-columns: 200px;
+            grid-template-rows: 200px;
+            gap: 20px;
+            padding: 10px;
+            .new-note {
+                background-color: $primary-color;
+                box-shadow: 0 0 3px $primary-color;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $link-color;
+            &:hover {
+                box-shadow: 6px 4px 5px $primary-color;
+            }
+            }  
+        }
+    }
+}
+
+@media screen and (max-width: 810px) {
+    .main{
+        .main-content {
+            flex-direction: column;
+            height: 90%;
+            .link-display {
+                width: 100%;
+                .messages {
+                    .chat-message {
+                        .send {
+                            .image {
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            .book-section {
+                width: 100%;
+                height: 100%;
+                border: 1px solid green;
+            }
+        }
+        
+    }  
+}
