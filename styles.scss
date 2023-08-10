@@ -1,104 +1,130 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto+Mono&display=swap');
+$background : #C2DED1;
+$text : #354259;
+$primary : #ECE5C7;
+$secondary : #CDC2AE;
+$accent : #864b69;
 
-$primary-color : rgb(0, 121, 255);
-$secondary-color: rgb(0, 223, 162);
-$link-color: rgb(246, 250, 112);
-$profile-color: rgb(255, 0, 96);
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto Mono';
+}
+
+body {
+    background-color: $background;
+    color: $text;
+    font-family: 'Open sans'
 }
 
 .main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 70vh;
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    .title {
-        height: 5%;
-        background-color: $secondary-color;
+    gap: 20px;
+    .introduction {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        letter-spacing: 3px;
+        flex-direction: column;
+        gap: 15px;
+        h1 {
+            font-size: 50px;
+        }
     }
-    .blue-bar {
-        height: 5%;
-        background-color: $primary-color;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        ul {
+    .details {
+        hr {
+            color: $secondary;
+            height: 5px;
+            border: none;
+            background-color: $text;
+        }
+        form {
             display: flex;
-            gap: 100px;
-            margin-right: 200px;
-            li {
-                list-style-type: none;
-                color: $link-color;
-                cursor: pointer;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            .title, .author {
+                flex: 2;
+            }
+            .submit {
+                flex: 1;
+            }
+            .status {
+                flex: 0.5;
+            }
+            .title input, .author input {
+                min-width: 100%;
+                height: 40px;
+                padding-left: 15px;
                 font-size: 20px;
+                border: none;
+                outline: 1px solid $secondary;
             }
-            .active {
-                color: $link-color;
-                text-shadow: 0 0 3px $link-color;
-            }
-        }
-    }
-    .main-content {
-        height: 90%;
-        width: 100%;
-        display: flex;
-        .book-section {
-            width: 100%;
-            background-color: $secondary-color;
-            display: grid;
-            grid-template-columns: 200px;
-            grid-template-rows: 200px;
-            gap: 20px;
-            padding: 10px;
-            .new-note {
-                background-color: $primary-color;
-                box-shadow: 0 0 3px $primary-color;
+            .status select {
+                min-width: 100%;
+                height: 40px;
+                text-align: center;
+                font-size: 20px;
+                background-color: white;
+                border: none;
                 cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: $link-color;
-            &:hover {
-                box-shadow: 6px 4px 5px $primary-color;
             }
-            }  
-        }
-    }
-}
-
-@media screen and (max-width: 810px) {
-    .main{
-        .main-content {
-            flex-direction: column;
-            height: 90%;
-            .link-display {
+            .submit button {
                 width: 100%;
-                .messages {
-                    .chat-message {
-                        .send {
-                            .image {
-                                width: 20px;
-                                height: 20px;
-                            }
-                        }
-                    }
+                height: 40px;
+                text-align: center;
+                font-size: 20px;
+                cursor: pointer;
+                background-color: $primary;
+                border: none;
+            }
+               
+        }
+    
+    }
+    .storage {
+        display: flex;
+        gap: 50px;
+        flex-wrap: wrap;
+        .card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border: 1px solid $text;
+            padding: 20px;
+            box-shadow: 6px 4px 3px $accent;
+            .buttons {
+                .edit {
+                    flex: 1;
+                    width: 100%;
+                    height: 40px;
+                    text-align: center;
+                    font-size: 20px;
+                    cursor: pointer;
+                    background-color: $primary;
+                    border: none;
+                    margin-bottom: 10px;
+                }
+                .delete {
+                    flex: 1;
+                    width: 100%;
+                    height: 40px;
+                    text-align: center;
+                    font-size: 20px;
+                    cursor: pointer;
+                    background-color: crimson;
+                    color: white;
+                    border: none;
+                    margin-bottom: 10px;
                 }
             }
-            .book-section {
-                width: 100%;
-                height: 100%;
-                border: 1px solid green;
-            }
         }
-        
-    }  
+    }
 }
