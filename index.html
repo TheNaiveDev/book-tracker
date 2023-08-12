@@ -10,33 +10,34 @@
     <div class="main">
         <div class="introduction">
             <h1>My Book-tracker Online</h1>
-            <p>As part of <a href="#">The Odin Project's</a> projects, My Book-tracker online is an online book tracker that helps users keep track of books they have read or are currently reading.</p>
+            <p>As part of <a href="https://www.theodinproject.com" target="_blank">The Odin Project's</a> projects, My Book-tracker online is an online book tracker that helps users keep track of books they have read or are currently reading.</p>
         </div>
         <div class="details">
             <form>
                 <div class="title">
                     <h2>Title</h2>
-                    <input class="title-input" type="text">
+                    <input class="title-input" type="text" placeholder="Enter Book Title">
                 </div>
                 <div class="author">
                     <h2>Author</h2>
-                    <input class="author-input" type="text">
+                    <input class="author-input" type="text" placeholder="Enter book author">
                 </div>
                 <div class="status">
                     <h2>Status</h2>
-                    <select>
+                    <select class="status-select">
                         <option value="read">read</option>
                         <option value="unread">unread</option>
                     </select>
                 </div>
                 <div class="submit">
                     <h2>Submit</h2>
-                    <button class="submit" onclick="addBookToLibrary()">Add Book</button>
+                    <button class="submit">Add Book</button>
                 </div>
             </form>
             <hr>
         </div>
         <div class="storage">
+            <!--
             <div class="card">
                 <div class="title-slot">
                     <h3>Title:</h3>
@@ -44,7 +45,7 @@
                 </div>
                 <div class="author-slot"><h3>Author:</h3><p class="author-here">John Ronald</p></div>
                 <div class="buttons">
-                    <button class="edit">Read</button>
+                    <button class="status stat">Read</button>
                     <button class="delete">Delete</button>
                 </div>
             </div>
@@ -52,7 +53,7 @@
                 <div class="title-slot"><h3>Title:</h3><p>Oliver Twist</p></div>
                 <div class="author-slot"><h3>Author:</h3><p>Charles Dickens</p></div>
                 <div class="buttons">
-                    <button class="edit">Read</button>
+                    <button class="status stat">Read</button>
                     <button class="delete">Delete</button>
                 </div>
             </div>
@@ -60,10 +61,11 @@
                 <div class="title-slot"><h3>Title:</h3><p>Street Child</p></div>
                 <div class="author-slot"><h3>Author:</h3><p>Berlie Doherty</p></div>
                 <div class="buttons">
-                    <button class="edit">Read</button>
+                    <button class="status stat">Read</button>
                     <button class="delete">Delete</button>
                 </div>
             </div>
+            -->
         </div>
     </div>
     <script src="script.js"></script>

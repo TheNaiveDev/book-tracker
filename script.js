@@ -2,6 +2,20 @@ let inputTitle = document.querySelector('.title-input');
 let inputAuthor = document.querySelector('.author-input');
 let submit = document.querySelector('.submit');
 let storage = document.querySelector('.storage');
+let statusSelect = document.querySelector('.status-select');
+let selectedStatus = statusSelect.value;
+let readButtons = document.querySelectorAll('.status');
+
+// Add event listeners to each button
+readButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (button.textContent === 'Read') {
+            button.textContent = 'Unread';
+        } else if (button.textContent === 'Unread') {
+            button.textContent = 'Read';
+        }
+    });
+});
 
 let myLibrary = [];
 
@@ -29,9 +43,8 @@ function addBookToLibrary() {
 
     //create book title name 
     let titleInput = document.createElement('p');
-    titleInput.textContent = 'testing ongoing';
+    titleInput.textContent = inputTitle.value;
     titleSlot.appendChild(titleInput);
-    storage.appendChild(newDiv);
 
     //create the author section
     let authorSlot = document.createElement('div');
@@ -45,7 +58,7 @@ function addBookToLibrary() {
 
     //create author name
     let authorInput = document.createElement('p');
-    authorInput.textContent = 'Roman Reigns';
+    authorInput.textContent = inputAuthor.value;
     authorSlot.appendChild(authorInput);
 
     //creating the button area
@@ -53,17 +66,42 @@ function addBookToLibrary() {
     buttonArea.classList.add('buttons');
 
     //creating the button
-    let createButton = document.createElement('button');
-    createButton.classList.add('edit');
-    createButton.textContent = 'Read';
-    buttonArea.appendChild(createButton);
-    newDiv.appendChild(buttonArea);
+    let createStatusButton = document.createElement('button');
+    createStatusButton.classList.add('status', 'stat'); // Add both classes
+    createStatusButton.textContent = selectedStatus === 'read' ? 'Read' : 'Unread';
     
-    //creating the delete button
+    buttonArea.appendChild(createStatusButton);
+    newDiv.appendChild(buttonArea);
+    storage.appendChild(newDiv);
+
+    let newBook = new Book(inputTitle.value, inputAuthor.value);
+    myLibrary.push(newBook);
+    console.log(myLibrary);
+
+    // Attach event listener to the newly created read button
+    createStatusButton.addEventListener('click', () => {
+        if (createStatusButton.textContent == 'Read') {
+            createStatusButton.textContent = 'Unread';
+        } else if (createStatusButton.textContent == 'Unread') {
+            createStatusButton.textContent = 'Read';
+        }
+    });
+
+    // Creating the delete button (similar to status button)
     let createDelButton = document.createElement('button');
     createDelButton.classList.add('delete');
     createDelButton.textContent = 'Delete';
     buttonArea.appendChild(createDelButton);
     newDiv.appendChild(buttonArea);
+    storage.appendChild(newDiv);
+
+    //removing a card or book from the DOM
+    createDelButton.addEventListener('click', () => {
+        storage.removeChild(newDiv); // Remove the book card when delete button is clicked
+    });
 }
 
+submit.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
+    addBookToLibrary();
+});
