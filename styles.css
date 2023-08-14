@@ -44,7 +44,7 @@ body {
   flex-wrap: wrap;
   margin-bottom: 50px;
 }
-.main .details form .title, .main .details form .author {
+.main .details form .title, .main .details form .author, .main .details form .pages {
   flex: 2;
 }
 .main .details form .submit {
@@ -53,7 +53,7 @@ body {
 .main .details form .status {
   flex: 0.5;
 }
-.main .details form .title input, .main .details form .author input {
+.main .details form .title input, .main .details form .author input, .main .details form .pages input {
   min-width: 100%;
   height: 40px;
   padding-left: 15px;
@@ -68,7 +68,6 @@ body {
   font-size: 20px;
   background-color: white;
   border: none;
-  cursor: pointer;
 }
 .main .details form .submit button {
   width: 100%;
@@ -83,6 +82,7 @@ body {
   display: flex;
   gap: 50px;
   flex-wrap: wrap;
+  position: relative;
 }
 .main .storage .card {
   display: flex;
@@ -102,7 +102,12 @@ body {
   flex-wrap: wrap;
   overflow: auto;
   scrollbar-width: thin;
-  scrollbar-arrow-color: #ECE5C7;
+}
+.main .storage .card .edit {
+  font-size: 20px;
+  padding: 5px;
+  color: black;
+  background-color: #CDC2AE;
 }
 .main .storage .card .buttons .status {
   flex: 1;
@@ -126,4 +131,10 @@ body {
   color: white;
   border: none;
   margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 100%;
+  }
 }/*# sourceMappingURL=styles.css.map */

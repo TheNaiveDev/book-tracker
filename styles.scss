@@ -50,7 +50,7 @@ body {
             gap: 15px;
             flex-wrap: wrap;
             margin-bottom: 50px;
-            .title, .author {
+            .title, .author, .pages {
                 flex: 2;
             }
             .submit {
@@ -59,7 +59,7 @@ body {
             .status {
                 flex: 0.5;
             }
-            .title input, .author input {
+            .title input, .author input, .pages input {
                 min-width: 100%;
                 height: 40px;
                 padding-left: 15px;
@@ -74,7 +74,6 @@ body {
                 font-size: 20px;
                 background-color: white;
                 border: none;
-                cursor: pointer;
             }
             .submit button {
                 width: 100%;
@@ -93,6 +92,7 @@ body {
         display: flex;
         gap: 50px;
         flex-wrap: wrap;
+        position: relative;
         .card {
             display: flex;
             flex-direction: column;
@@ -109,8 +109,15 @@ body {
                     flex-wrap: wrap;
                     overflow: auto;
                     scrollbar-width: thin;
-                    scrollbar-arrow-color: $primary;
                 }
+            }
+            .edit {
+                
+                font-size: 20px;
+                padding: 5px;
+                color: black;
+                background-color: $secondary;
+                
             }
             .buttons {
                 .status {
@@ -138,5 +145,11 @@ body {
                 }
             }
         }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card {
+        width: 100%;
     }
 }
